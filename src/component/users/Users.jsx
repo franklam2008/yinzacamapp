@@ -10,11 +10,10 @@ export default function Users({ updateSelectUser, setShowModal }) {
 
   const [loading, setLoading] = useState(true);
   const [searching, setSearching] = useState(false);
-  const searchInput = useRef();
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
-  const url = `https://api.github.com/users?since=${pageNumber}`;
+  const searchInput = useRef();
   const observer = useRef();
   const lastUserElementRef = useCallback(
     (node) => {
@@ -30,13 +29,14 @@ export default function Users({ updateSelectUser, setShowModal }) {
     [loading, searching]
   );
   useEffect(() => {
+    const url = `https://api.github.com/users?since=${pageNumber}`;
     setLoading(true);
     axios.get(url).then((response) => {
       setUsers((users) => [...users, ...response.data]);
       setFilteredUsers((users) => [...users, ...response.data]);
       setLoading(false);
     });
-  }, [url]);
+  }, [pageNumber]);
   return (
     <section className="mainCon">
       <div className="searchBar">

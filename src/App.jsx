@@ -13,7 +13,13 @@ function App() {
 
   return (
     <main className="App">
-      <Modal user={selectedUser} showModal={showModal} closeModal={closeModal} loadingModal={loadingModal} setLoadingModal={setLoadingModal} />
+      <Modal
+        user={selectedUser}
+        showModal={showModal}
+        closeModal={closeModal}
+        setLoadingModal={setLoadingModal}
+        loadingModal={loadingModal}
+      />
       <header className="AppHeader">
         <section className="appLogoCon">
           <img
@@ -26,7 +32,7 @@ function App() {
       </header>
       <Users updateSelectUser={updateSelectUser} />
       <p className="madeWith">
-        Made by Frank Lam with <FaHeart className="" /> in Pittsburgh, Pennsylvania
+        Made by Frank Lam with <FaHeart /> in Pittsburgh, Pennsylvania
       </p>
     </main>
   );
