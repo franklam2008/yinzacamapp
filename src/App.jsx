@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import Users from "./component/users/Users.jsx";
 import Modal from "./component/modal/Modal.jsx";
 import { FaHeart } from "react-icons/fa";
-
 import "./css/App.css";
 import yinzcamLogo from "./images/yinzcamLogo.png";
 import yinzcamIcon from "./images/yinzcamIcon.png";
 function App() {
   const [selectedUser, setSelectedUser] = useState(null);
-  const [showModal, setShowModal] = useState(false);
   const [loadingModal, setLoadingModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <main className="App">
