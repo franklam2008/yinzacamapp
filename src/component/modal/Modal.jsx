@@ -4,6 +4,7 @@ import uuid from "react-uuid";
 import Follower from "./Follower.jsx";
 import { ImSpinner10 } from "react-icons/im";
 import { CgClose } from "react-icons/cg";
+import "../../css/Modal.css";
 
 export default function Modal({ user, showModal, closeModal, loadingModal, setLoadingModal }) {
   // console.log(user);
@@ -33,6 +34,8 @@ export default function Modal({ user, showModal, closeModal, loadingModal, setLo
   return !!userData && !!followers && showModal ? (
     <section id="modal" className="modal" >
       <div className="modalCon">
+      <CgClose title="close modal" className="exitBtn" onClick={() => closeModal()} />
+
         {!loadingModal ? <section className="modalSection"><div className="userDetail">
           <img src={userData.avatar_url} alt="" className="userAvatarIcon" />
           <h2>{userData.name}</h2>
@@ -47,7 +50,6 @@ export default function Modal({ user, showModal, closeModal, loadingModal, setLo
         </div>
           <div className="followersCon">
             <h4>Followers</h4>
-            <CgClose className="exitBtn" onClick={() => closeModal()} />
             <div className="followers">
               {followers.map(follower => (
                 <Follower key={uuid()} follower={follower} />
