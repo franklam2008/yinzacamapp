@@ -30,6 +30,10 @@
                 text-align: left;
                 max-width: 200px;
                 width: 30%;
+                p {
+                    font-size: 12px;
+                    margin: 6px 0;
+                }
                 .userAvatarIcon {
                     width: 80px;
                 }
@@ -79,10 +83,9 @@
                 .followersCon {
                     width: 100%;
                     margin-left: 0px;
-                    .followers{
-                        .followerCon{
-                    width: 50%;
-
+                    .followers {
+                        .followerCon {
+                            width: 50%;
                         }
                     }
                 }

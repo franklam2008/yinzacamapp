@@ -51,6 +51,11 @@
   width: 30%;
 }
 
+.modal .modalCon .modalSection .userDetail p {
+  font-size: 12px;
+  margin: 6px 0;
+}
+
 .modal .modalCon .modalSection .userDetail .userAvatarIcon {
   width: 80px;
 }

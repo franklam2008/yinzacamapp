@@ -34,32 +34,37 @@ export default function Modal({ user, showModal, closeModal, loadingModal, setLo
   return !!userData && !!followers && showModal ? (
     <section id="modal" className="modal" >
       <div className="modalCon">
-      <CgClose title="close modal" className="exitBtn" onClick={() => closeModal()} />
+        <CgClose title="close modal" className="exitBtn" onClick={() => closeModal()} />
 
-        {!loadingModal ? <section className="modalSection"><div className="userDetail">
-          <img src={userData.avatar_url} alt="" className="userAvatarIcon" />
-          <h2>{userData.name}</h2>
-          <p>Id: {userData.id}</p>
-          <p>Followers: {userData.followers}</p>
-          <p>Following: {userData.following}</p>
-          <p>Login: {userData.login}</p>
-          <p>Type: {userData.type}</p>
-          {!!userData.location ? <div>location: <span>{userData.location}</span></div> : null}
-          {!!userData.company ? <p>Company: {userData.company}</p> : null}
-
-        </div>
-          <div className="followersCon">
-            <h4>Followers</h4>
-            <div className="followers">
-              {followers.map(follower => (
-                <Follower key={uuid()} follower={follower} />
-              ))}
+        {!loadingModal ?
+          <section className="modalSection">
+            <div className="userDetail">
+              <img src={userData.avatar_url} alt="" className="userAvatarIcon" />
+              <h3>{userData.name}</h3>
+              <p>Id: {userData.id}</p>
+              <p>Followers: {userData.followers}</p>
+              <p>Following: {userData.following}</p>
+              <p>Login: {userData.login}</p>
+              <p>Type: {userData.type}</p>
+              {!!userData.location ? <p>location: <span>{userData.location}</span></p> : null}
+              {!!userData.company ? <p>Company: {userData.company}</p> : null}
             </div>
 
-          </div></section> : <div className="spinnerCon modalSpinner" >
+            <div className="followersCon">
+              <h4>Followers</h4>
+              <div className="followers">
+                {followers.map(follower => (
+                  <Follower key={uuid()} follower={follower} />
+                ))}
+              </div>
+            </div>
+          </section> :
+
+          <div className="spinnerCon modalSpinner" >
             <ImSpinner10 className="spinner loading" />
             <p>{"Loading..."}</p>
-          </div>}
+          </div>
+        }
       </div>
 
     </section>

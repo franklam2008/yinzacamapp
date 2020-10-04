@@ -6,7 +6,7 @@ import { ImSpinner10 } from "react-icons/im";
 import { AiOutlineSearch } from "react-icons/ai";
 import "../../css/Users.css";
 
-export default function Users({ updateSelectUser, setShowModal }) {
+export default function Users({ updateSelectUser }) {
 
   const [loading, setLoading] = useState(true);
   const [searching, setSearching] = useState(false);
@@ -15,6 +15,7 @@ export default function Users({ updateSelectUser, setShowModal }) {
   const [pageNumber, setPageNumber] = useState(1);
   const searchInput = useRef();
   const observer = useRef();
+
   const lastUserElementRef = useCallback(
     (node) => {
       if (loading) return;
@@ -28,6 +29,7 @@ export default function Users({ updateSelectUser, setShowModal }) {
     },
     [loading, searching]
   );
+
   useEffect(() => {
     const url = `https://api.github.com/users?since=${pageNumber}`;
     setLoading(true);
@@ -37,6 +39,7 @@ export default function Users({ updateSelectUser, setShowModal }) {
       setLoading(false);
     });
   }, [pageNumber]);
+
   return (
     <section className="mainCon">
       <div className="searchBar">
@@ -49,19 +52,17 @@ export default function Users({ updateSelectUser, setShowModal }) {
           onChange={handleInput}
         />
         <button onClick={clearUserSearch}>Clear</button>
-
       </div>
+
       <section className="usersCon">
-        {filteredUsers.map((user, index) => {
-          if (users.length === index + 1) {
-            return (
-              <User user={user} key={uuid()} updateSelectUser={updateSelectUser} />
-            );
-          } else {
-            return <User user={user} key={uuid()} updateSelectUser={updateSelectUser} />;
-          }
-        })}
+        {filteredUsers.map((user) => (
+          <User
+            user={user}
+            key={uuid()}
+            updateSelectUser={updateSelectUser}
+          />))}
       </section>
+
       <div ref={lastUserElementRef} className="spinnerCon" >
         <ImSpinner10 className={loading ? "spinner loading" : "spinner notLoading"} />
         <p>{loading ? "Loading..." : ""}</p>
