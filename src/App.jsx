@@ -1,26 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
-import { uuid } from 'uuidv4';
-import "./App.css";
+import React, { useState } from "react";
+import Users from "./component/users/Users.jsx";
+import Modal from "./component/modal/Modal.jsx";
+import { FaHeart } from "react-icons/fa";
+
+import "./css/App.css";
 import yinzcamLogo from "./images/yinzcamLogo.png";
 import yinzcamIcon from "./images/yinzcamIcon.png";
-import User from "./User.jsx";
 function App() {
-  const searchInput = useRef();
-  const [users, setUsers] = useState([]);
-  const [filteredUsers, setFilteredUsers] = useState([]);
-  const [pageNumber, setPageNumber] = useState(1);
-  const url = `https://api.github.com/users?since=${pageNumber}`;
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [loadingModal, setLoadingModal] = useState(true);
 
-  useEffect(() => {
-    axios.get(url).then((response) => {
-      setUsers((users) => [...users, ...response.data]);
-      setFilteredUsers(response.data);
-      console.log(response.data);
-    });
-  }, [url]);
   return (
     <main className="App">
+      <Modal user={selectedUser} showModal={showModal} closeModal={closeModal} loadingModal={loadingModal} setLoadingModal={setLoadingModal} />
       <header className="AppHeader">
         <section className="appLogoCon">
           <img
@@ -31,45 +24,21 @@ function App() {
           <img src={yinzcamLogo} alt="Yinzcam Logo" className="yinzcamLogo " />
         </section>
       </header>
-      <section className="mainCon">
-        <div className="searchBar">
-          <input
-            type="text"
-            placeholder="Search by name"
-            className="searchBarInput"
-            ref={searchInput}
-            onChange={handleInput}
-          />
-        </div>
-
-        <section className="usersCon">
-          {users.map((user) => (
-            <User user={user} key={uuid()} />
-          ))}
-          <button onClick={test}>test</button>
-        </section>
-      </section>
+      <Users updateSelectUser={updateSelectUser} />
+      <p className="madeWith">
+        Made by Frank Lam with <FaHeart className="" /> in Pittsburgh, Pennsylvania
+      </p>
     </main>
   );
-
-  function handleInput(e) {
-    // setSearch(true);
-    filterChamps(e.target.value);
+  function updateSelectUser(user) {
+    setSelectedUser(user)
+    setShowModal(true)
+    if (user !== selectedUser) {
+      setLoadingModal(true)
+    }
   }
-  function filterChamps(value) {
-    console.log(value);
-    const filteredUsers = Object.keys(users)
-      .filter((key) => key.toLowerCase().indexOf(value.toLowerCase()) !== -1)
-      //combine
-      .reduce((obj, key) => {
-        obj[key] = users[key];
-        return obj;
-      }, {});
-    setFilteredUsers(filteredUsers);
-  }
-  function test() {
-    console.log("test");
-    setPageNumber(pageNumber + 1);
+  function closeModal() {
+    setShowModal(false)
   }
 }
 
