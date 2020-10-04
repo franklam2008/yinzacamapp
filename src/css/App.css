@@ -1,0 +1,314 @@
+:root {
+  --darkerBlueSaved: #ffffff;
+  --darkBlueSaved: #f2f2f2;
+  --blueSaved: #e5e3e1;
+  --lightBlueSaved: #e52e71;
+  --pinkSaved: #ff8a00;
+  --textWhite: #393e46;
+  --subTextWhite: #303a52;
+  --filter: invert(0%);
+}
+
+.App {
+  text-align: center;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+header.AppHeader {
+  min-width: 100vw;
+  padding: 20px 0;
+}
+
+.appLogoCon {
+  margin: 5px 10px;
+}
+
+.appLogoCon img.yinzcamIcon {
+  width: 35px;
+  pointer-events: none;
+}
+
+.appLogoCon img.yinzcamLogo {
+  width: 80px;
+  margin-left: 20px;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .appLogoCon .yinzcamIcon {
+    -webkit-animation: App-logo-spin infinite 20s linear;
+            animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@-webkit-keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.searchBar {
+  margin: 0 auto;
+  max-width: 300px;
+  border: 1px solid rgba(172, 172, 172, 0.5);
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.searchBar input {
+  color: var(--textWhite);
+  padding-left: 10px;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+}
+
+.searchBar input:focus {
+  outline: none;
+}
+
+.searchBar:focus-within {
+  border: 1px solid var(--pinkSaved);
+}
+
+.searchBar button {
+  position: absolute;
+  padding: 0 10px;
+  right: 0;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  color: var(--textWhite);
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
+.searchBar button:hover {
+  background-color: var(--pinkSaved);
+  color: var(--textWhite);
+}
+
+.mainCon {
+  border: 2px solid #474747;
+  border-radius: 8px;
+  width: 90vw;
+  max-width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  overflow-y: hidden;
+  padding: 15px;
+  padding-bottom: 40px;
+  overflow-y: scroll;
+}
+
+.mainCon::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: var(--darkBlueSaved);
+}
+
+.mainCon::-webkit-scrollbar {
+  background-color: var(--darkBlueSaved);
+}
+
+.mainCon::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--blueSaved);
+}
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(48, 48, 48, 0.801);
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 10;
+}
+
+.modal .modalCon {
+  width: 70vw;
+  max-width: 700px;
+  height: 550px;
+  background-color: white;
+  padding: 15px;
+}
+
+.modal .modalCon .modalSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.modal .modalCon .modalSection .userDetail {
+  text-align: left;
+  max-width: 200px;
+  width: 30%;
+}
+
+.modal .modalCon .modalSection .userDetail .userAvatarIcon {
+  width: 80px;
+}
+
+.modal .modalCon .modalSection .followersCon {
+  margin-left: 50px;
+  width: 70%;
+  text-align: left;
+  position: relative;
+}
+
+.modal .modalCon .modalSection .followersCon h4 {
+  margin: 10px 0 20px;
+  text-align: center;
+}
+
+.modal .modalCon .modalSection .followersCon .exitBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.modal .modalCon .modalSection .followersCon .followers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.modal .modalCon .modalSection .followersCon .followers .followerCon {
+  font-size: 0.75rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 33%;
+  min-width: 100px;
+}
+
+.modal .modalCon .modalSection .followersCon .followers .followerCon img {
+  width: 50px;
+  height: 50px;
+}
+
+.modalSpinner {
+  margin-top: 40%;
+}
+
+.spinnerCon {
+  text-align: center;
+}
+
+.spinnerCon svg.spinner {
+  margin: 0 auto;
+  font-size: 24px;
+}
+
+.spinnerCon p {
+  margin: 5px;
+  font-size: 12px;
+}
+
+.spinnerCon .loading {
+  display: block;
+}
+
+.spinnerCon .notLoading {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .spinnerCon .spinner {
+    -webkit-animation: Spinner infinite 1.5s linear;
+            animation: Spinner infinite 1.5s linear;
+  }
+}
+
+@-webkit-keyframes Spinner {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes Spinner {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.madeWith {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.madeWith svg {
+  color: #cf0101;
+  font-size: 15px;
+}
+/*# sourceMappingURL=App.css.map */

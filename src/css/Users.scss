@@ -1,0 +1,26 @@
+.usersCon {
+    display: flex;
+    flex-wrap: wrap;
+    .userCon {
+        margin: 10px;
+        display: flex;
+        flex-grow: 1;
+        width: 180px;
+        overflow-x: hidden;
+        cursor: pointer;
+        transition: all 0.3s;
+        img.userAvatarIcon {
+            width: 60px;
+            transition: 0.5s ease-out;
+        }
+        p.userLogin {
+            margin-left: 10px;
+        }
+        &:hover > p {
+            text-decoration: underline;
+        }
+        &:hover > img {
+            filter: brightness(0.5);
+        }
+    }
+}
