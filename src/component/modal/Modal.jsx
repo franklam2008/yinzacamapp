@@ -24,10 +24,9 @@ export default function Modal({ user, showModal, closeModal, loadingModal, setLo
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
-  const modal = document.getElementById('modal');
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
-    if (event.target === modal) {
+    if (event.target.id === 'modal') {
       closeModal()
     }
   }
