@@ -50,22 +50,29 @@
   text-align: left;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
-  width: 30%;
+  width: 35%;
   padding: 15px;
-  background-color: #e9e9e9;
+  background-color: whitesmoke;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .modal .modalCon .modalSection .userDetail p {
   font-size: 14px;
   margin: 6px 0;
+  text-align: left;
 }
 
 .modal .modalCon .modalSection .userDetail .userAvatarIcon {
-  width: 80px;
+  margin-top: 20px;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid #3f3f3f;
 }
 
 .modal .modalCon .modalSection .followersCon {
-  width: 70%;
+  width: 65%;
   text-align: left;
 }
 
@@ -106,6 +113,7 @@
 .modal .modalCon .modalSection .followersCon .followers .followerCon img {
   width: 50px;
   height: 50px;
+  border-radius: 7px;
 }
 
 .modal .modalCon .modalSection .followersCon .followers p {
@@ -127,6 +135,9 @@
   .modal .modalCon .modalSection .userDetail {
     width: 100%;
     border-bottom-left-radius: 0px;
+  }
+  .modal .modalCon .modalSection .userDetail .userAvatarIcon {
+    width: 100px;
   }
   .modal .modalCon .modalSection .followersCon {
     width: 100%;

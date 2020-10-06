@@ -68,6 +68,7 @@
             cursor: pointer;
             transition: all 0.3s;
             img.userAvatarIcon {
+                border-radius: 10px;
                 width: 60px;
                 transition: 0.5s ease-out;
             }

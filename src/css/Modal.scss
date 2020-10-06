@@ -31,20 +31,26 @@
                 text-align: left;
                 border-bottom-left-radius: 10px;
                 border-top-left-radius: 10px;
-                width: 30%;
+                width: 35%;
                 padding: 15px;
-                background-color: rgb(233, 233, 233);
+                background-color: rgb(245, 245, 245);
+                text-align: center;
+                box-sizing: border-box;
                 p {
                     font-size: 14px;
                     margin: 6px 0;
+                    text-align: left;
                 }
                 .userAvatarIcon {
-                    width: 80px;
+                    margin-top: 20px;
+                    width: 150px;
+                    border-radius: 50%;
+                    border: 2px solid rgb(63, 63, 63);
                 }
             }
 
             .followersCon {
-                width: 70%;
+                width: 65%;
                 text-align: left;
                 h4 {
                     margin: 20px 0 20px;
@@ -66,6 +72,7 @@
                         img {
                             width: 50px;
                             height: 50px;
+                            border-radius: 7px;
                         }
                     }
                     p {
@@ -87,13 +94,16 @@
                 .userDetail {
                     width: 100%;
                     border-bottom-left-radius: 0px;
+                    .userAvatarIcon {
+                        width: 100px;
+                    }
                 }
                 .followersCon {
                     width: 100%;
                     margin-left: 0px;
                     .followers {
-                    max-height: 350px;
-                    .followerCon {
+                        max-height: 350px;
+                        .followerCon {
                             width: 50%;
                         }
                     }

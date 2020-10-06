@@ -95,6 +95,7 @@
 }
 
 .mainCon .usersCon .userCon img.userAvatarIcon {
+  border-radius: 10px;
   width: 60px;
   -webkit-transition: 0.5s ease-out;
   transition: 0.5s ease-out;
