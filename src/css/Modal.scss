@@ -14,8 +14,8 @@
         width: 70vw;
         max-width: 700px;
         height: 550px;
+        border-radius: 10px;
         background-color: white;
-        padding: 15px;
         position: relative;
         .exitBtn {
             position: absolute;
@@ -26,12 +26,16 @@
         .modalSection {
             display: flex;
             flex-direction: row;
+            height: 100%;
             .userDetail {
                 text-align: left;
-                max-width: 200px;
+                border-bottom-left-radius: 10px;
+                border-top-left-radius: 10px;
                 width: 30%;
+                padding: 15px;
+                background-color: rgb(233, 233, 233);
                 p {
-                    font-size: 12px;
+                    font-size: 14px;
                     margin: 6px 0;
                 }
                 .userAvatarIcon {
@@ -40,18 +44,16 @@
             }
 
             .followersCon {
-                margin-left: 50px;
                 width: 70%;
                 text-align: left;
                 h4 {
-                    margin: 10px 0 20px;
+                    margin: 20px 0 20px;
                     text-align: center;
                 }
-
                 .followers {
                     display: flex;
                     flex-wrap: wrap;
-                    max-height: 500px;
+                    max-height: 480px;
                     overflow-y: scroll;
                     .followerCon {
                         font-size: 0.75rem;
@@ -66,6 +68,10 @@
                             height: 50px;
                         }
                     }
+                    p {
+                        text-align: center;
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -74,17 +80,20 @@
 @media only screen and (max-width: 500px) {
     .modal {
         .modalCon {
+            width: 95vw;
             overflow: scroll;
             .modalSection {
                 flex-direction: column;
                 .userDetail {
                     width: 100%;
+                    border-bottom-left-radius: 0px;
                 }
                 .followersCon {
                     width: 100%;
                     margin-left: 0px;
                     .followers {
-                        .followerCon {
+                    max-height: 350px;
+                    .followerCon {
                             width: 50%;
                         }
                     }

@@ -52,9 +52,9 @@ export default function Modal({ user, showModal, closeModal, loadingModal, setLo
             <div className="followersCon">
               <h4>Followers</h4>
               <div className="followers">
-                {followers.map(follower => (
+                {followers.length !== 0 ? followers.map(follower => (
                   <Follower key={uuid()} follower={follower} />
-                ))}
+                )) : <p>This user has no follower yet</p>}
               </div>
             </div>
           </section> :
